@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @CrossOrigin
 @Controller
-public class Main {
+public class MainController {
     @Autowired
     private UserService userService;
 
@@ -55,7 +55,7 @@ public class Main {
         } else {
             model.addAttribute("message", "Activation code is not found!");
         }
-        return "main";
+        return "mainController";
     }
 
 

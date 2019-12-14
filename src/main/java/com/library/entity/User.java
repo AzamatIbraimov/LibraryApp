@@ -23,6 +23,8 @@ public class User {
     private String email;
     @Column(name = "name")
     private String name;
+    @Column(name = "departament")
+    private String departament;
     @Column(name = "is_active")
     private boolean isActive;
     @Size(min = 4)
@@ -43,9 +45,10 @@ public class User {
     public User() {
     }
 
-    public User(String email, String name, boolean isActive, @Size(min = 4) String password, String activationCode, String recoveryCode, List<Role> roles) {
+    public User(String email, String name, String departament, boolean isActive, @Size(min = 4) String password, String activationCode, String recoveryCode, List<Role> roles) {
         this.email = email;
         this.name = name;
+        this.departament = departament;
         this.isActive = isActive;
         this.password = password;
         this.activationCode = activationCode;
@@ -67,6 +70,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDepartament() {
+        return departament;
+    }
+
+    public void setDepartament(String departament) {
+        this.departament = departament;
     }
 
     public boolean isActive() {

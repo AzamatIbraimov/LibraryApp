@@ -70,7 +70,7 @@ public class Main {
     }
 
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public String showLoginForm() {
         return "views/loginForm";
     }

@@ -41,4 +41,35 @@ public class BookController {
     public List<Book> getAllCategories() {
         return bookService.getAll();
     }
+
+    @GetMapping(value="/allbyrating")
+    public List<Book> getAllProductsByRating() {
+        return bookService.getAllByRating();
+    }
+
+
+    @GetMapping(value="/search/{text}")
+    public List<Book> byName(@PathVariable ("text") String text) {
+        if(text.equals("")){
+            return null;
+        }
+        else {
+            return bookService.getByName(text);
+        }
+    }
+
+    @GetMapping("/category/{id}")
+    public List<Book> getByCategory(@PathVariable ("id") Integer id) throws Exception {
+        return bookService.getByCategory(id);
+    }
+
+    @GetMapping("/subcategory/{id}")
+    public List<Book> getBySubCategory(@PathVariable ("id") Integer id) throws Exception {
+        return bookService.getBySubcategory(id);
+    }
+
+    @GetMapping("/tag/{id}")
+    public List<Book> getByAuthor(@PathVariable ("id") Integer id) throws Exception {
+        return bookService.getByAuthor(id);
+    }
 }

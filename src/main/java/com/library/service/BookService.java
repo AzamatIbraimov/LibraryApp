@@ -4,6 +4,7 @@ package com.library.service;
 import com.library.entity.Book;
 import com.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,4 +46,21 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public List<Book> getAllByRating(){
+        return bookRepository.findAll(Sort.by(Sort.Direction.DESC,"rating"));
+    }
+
+    public List<Book> getByName(String text){
+        return bookRepository.findByNameContaining(text);
+    }
+
+    public List<Book> getByCategory(Integer category){
+        return bookRepository.findByCategoryEquals(category);
+    }
+    public List<Book> getBySubcategory(Integer subcategory){
+        return bookRepository.findBySubCategoryEquals(subcategory);
+    }
+    public List<Book> getByAuthor(Integer authorId){
+        return bookRepository.findByAuthorIdEquals(authorId);
+    }
 }

@@ -68,7 +68,7 @@ public class BookController {
         return bookService.getBySubcategory(id);
     }
 
-    @GetMapping("/tag/{id}")
+    @GetMapping("/author/{id}")
     public List<Book> getByAuthor(@PathVariable ("id") Integer id) throws Exception {
         return bookService.getByAuthor(id);
     }

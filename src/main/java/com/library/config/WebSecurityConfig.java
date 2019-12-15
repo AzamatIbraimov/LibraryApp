@@ -27,6 +27,7 @@
 //                .passwordEncoder(passwordEncoder()).rolePrefix("ROLE_");
 //
 //    }
+//
 //    @Bean
 //    public PasswordEncoder passwordEncoder() {
 //        // TODO Auto-generated method stub

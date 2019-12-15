@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.context.annotation.Bean;
 
 @Entity
 public class User {
@@ -36,6 +37,9 @@ public class User {
     @Column(name = "recovery_code")
     private String recoveryCode;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Retrievement> retrievements;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLES", joinColumns={
             @JoinColumn(name = "USER_EMAIL", referencedColumnName = "email") }, inverseJoinColumns = {
@@ -45,7 +49,7 @@ public class User {
     public User() {
     }
 
-    public User(String email, String name, String departament, boolean isActive, @Size(min = 4) String password, String activationCode, String recoveryCode, List<Role> roles) {
+    public User(String email, String name, String departament, boolean isActive, @Size(min = 4) String password, String activationCode, String recoveryCode, List<Retrievement> retrievements, List<Role> roles) {
         this.email = email;
         this.name = name;
         this.departament = departament;
@@ -53,6 +57,7 @@ public class User {
         this.password = password;
         this.activationCode = activationCode;
         this.recoveryCode = recoveryCode;
+        this.retrievements = retrievements;
         this.roles = roles;
     }
 
@@ -110,6 +115,14 @@ public class User {
 
     public void setRecoveryCode(String recoveryCode) {
         this.recoveryCode = recoveryCode;
+    }
+
+    public List<Retrievement> getRetrievements() {
+        return retrievements;
+    }
+
+    public void setRetrievements(List<Retrievement> retrievements) {
+        this.retrievements = retrievements;
     }
 
     public List<Role> getRoles() {

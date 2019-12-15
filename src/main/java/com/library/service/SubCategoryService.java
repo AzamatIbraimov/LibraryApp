@@ -27,6 +27,7 @@ public class SubCategoryService {
                     newsubcategory.setId(subCategory.getId());
                     newsubcategory.setCategoryId(subCategory.getCategoryId());
                     newsubcategory.setDescription(subCategory.getDescription());
+                    newsubcategory.setName(subCategory.getDescription());
                     return subCategoryRepository.save(newsubcategory);
                 }).orElseThrow( Exception::new);
     }

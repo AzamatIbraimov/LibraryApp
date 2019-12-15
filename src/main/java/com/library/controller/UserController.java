@@ -49,7 +49,7 @@ public class UserController {
     public String recovery(@PathVariable String code,
                            @PathVariable String newpassword) {
         User  user = userService.findByRecoveryCode(code);
-        user.setPassword(userService.encode(newpassword));
+//        user.setPassword(userService.encode(newpassword));
         user.setRecoveryCode(null);
         System.out.println(user.getEmail());
         userService.save(user);

@@ -20,6 +20,9 @@ public class Retrievement {
     @Temporal(TemporalType.TIMESTAMP)
     private Date returnDate;
 
+    @Column(name = "comment")
+    private String comment;
+
     @Column(name = "user_email",nullable = false, updatable = false)
     private String userEmail;
 
@@ -30,8 +33,10 @@ public class Retrievement {
     public Retrievement() {
     }
 
-    public Retrievement(Date retrievementDate, String userEmail, List<Book> books) {
+    public Retrievement(Date retrievementDate, Date returnDate, String comment, String userEmail, List<Book> books) {
         this.retrievementDate = retrievementDate;
+        this.returnDate = returnDate;
+        this.comment = comment;
         this.userEmail = userEmail;
         this.books = books;
     }
@@ -50,6 +55,22 @@ public class Retrievement {
 
     public void setRetrievementDate(Date retrievementDate) {
         this.retrievementDate = retrievementDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public String getUserEmail() {

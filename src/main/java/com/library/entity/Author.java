@@ -21,7 +21,7 @@ public class Author {
     private String contact;
 
     @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "author_id", referencedColumnName = "product_id")
+    @JoinColumn(name = "author_id", referencedColumnName =" author_id")
     private List<Book> books;
 
     public Author() {

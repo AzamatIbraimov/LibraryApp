@@ -1,6 +1,7 @@
 package com.library.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -18,12 +19,17 @@ public class Category {
     @Column(name = "name", length = 60)
     private String name;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id", referencedColumnName =" category_id")
+    private List<SubCategory> subCategories;
+
     public Category() {
     }
 
-    public Category(String description, String name) {
+    public Category(String description, String name, List<SubCategory> subCategories) {
         this.description = description;
         this.name = name;
+        this.subCategories = subCategories;
     }
 
     public Integer getId() {
@@ -48,5 +54,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubCategory> subCategories) {
+        this.subCategories = subCategories;
     }
 }

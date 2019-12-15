@@ -5,6 +5,8 @@ import com.library.service.RetrievementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -23,6 +25,11 @@ public class RetrievementController {
     @PutMapping("/{id}")
     public Retrievement putRetrievement(@PathVariable ("id") Integer id ,@RequestBody Retrievement retrievement) throws Exception {
         return retrievementService.changeById(id,retrievement);
+    }
+
+    @GetMapping("/close/{id}/{comment}")
+    public Retrievement closeRetrievement(@PathVariable ("id") Integer id,@PathVariable ("comment") String comment) throws Exception {
+        return retrievementService.closeRetrievement(id,comment);
     }
 
     @RequestMapping(method = RequestMethod.POST)

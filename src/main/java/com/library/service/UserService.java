@@ -1,6 +1,5 @@
 package com.library.service;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +9,7 @@ import com.library.entity.Role;
 import com.library.entity.User;
 import com.library.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,13 +23,13 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public String encode(String code) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder.encode(code);
-    }
+//    public String encode(String code) {
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//        return encoder.encode(code);
+//    }
 
     public void createUser(User user) {
-        user.setPassword(encode(user.getPassword()));
+//        user.setPassword(encode(user.getPassword()));
         user.setActive(false);
         user.setActivationCode(UUID.randomUUID().toString());
         user.setRecoveryCode(null);
@@ -54,8 +53,8 @@ public class UserService {
 
 
     public void createAdmin(User user) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.setPassword(encoder.encode(user.getPassword()));
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//        user.setPassword(encoder.encode(user.getPassword()));
         Role userRole = new Role("ADMIN");
         List<Role> roles = new ArrayList<>();
         roles.add(userRole);

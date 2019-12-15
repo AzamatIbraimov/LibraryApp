@@ -13,14 +13,19 @@ public class SubCategory {
     @Column(name = "category_id",nullable = false, updatable = false)
     private Integer categoryId;
 
+    @Column(name = "name", length = 500)
+    private String name;
+
     @Column(name = "description", length = 500)
     private String description;
+
 
     public SubCategory() {
     }
 
-    public SubCategory(Integer categoryId, String description) {
+    public SubCategory(Integer categoryId, String name, String description) {
         this.categoryId = categoryId;
+        this.name = name;
         this.description = description;
     }
 
@@ -38,6 +43,14 @@ public class SubCategory {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

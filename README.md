@@ -1,6 +1,5 @@
-# Spring Boot "Microservice" Example Project
-
-This is a sample Java / Maven / Spring Boot (version 5.0.6) application that can be used as a starter for creating a microservice complete with built-in health check, metrics and much more. I hope it helps you.
+# Spring Boot "Library Management System"
+## CS-201 OOP Final project
 
 ## How to Run 
 

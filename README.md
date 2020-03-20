@@ -1,5 +1,4 @@
 # Spring Boot "Library Management System"
-## CS-201 OOP Final project
 
 ## How to Run 
 
